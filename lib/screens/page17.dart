@@ -3,9 +3,11 @@ import 'package:just_audio/just_audio.dart';
 
 class Page17 extends StatefulWidget {
   bool isMultipleSelectionEnabled;
+  final Function(bool) updateMultipleSelectionEnabled;
   Page17({
     Key? key,
     required this.isMultipleSelectionEnabled,
+    required this.updateMultipleSelectionEnabled,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class Page17State extends State<Page17> {
       _endIndex = null;
       AudioListHolder17.audioList.clear();
       widget.isMultipleSelectionEnabled = false;
+      widget.updateMultipleSelectionEnabled(false);
     } else if (_startIndex == null) {
       _selectedContainers.clear();
       _selectedAudioFiles.clear();
@@ -82,6 +85,18 @@ class Page17State extends State<Page17> {
     for (final filePath in audioFilePaths) {
       await _audioPlayer.setAsset(filePath);
     }
+  }
+
+  void clearSelection() {
+    setState(() {
+      _selectedContainers.clear();
+      _selectedAudioFiles.clear();
+      _startIndex = null;
+      _endIndex = null;
+      AudioListHolder17.audioList.clear();
+      widget.isMultipleSelectionEnabled = false;
+      widget.updateMultipleSelectionEnabled(false);
+    });
   }
 
   @override

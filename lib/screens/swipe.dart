@@ -30,8 +30,27 @@ class SwipePages extends StatefulWidget {
 
 class _SwipePagesState extends State<SwipePages>
     with SingleTickerProviderStateMixin {
-  final GlobalKey<Page1State> _page1Key = GlobalKey<Page1State>();
+  //final GlobalKey<Page1State> _page1Key = GlobalKey<Page1State>();
+  final List<GlobalKey<Page1State>> _page1Key = [
+    GlobalKey<Page1State>(),
+  ];
+  final List<GlobalKey<Page2State>> _page2Key = [
+    GlobalKey<Page2State>(),
+  ];
+  final List<GlobalKey<Page3State>> _page3Key = [
+    GlobalKey<Page3State>(),
+  ];
+  final List<GlobalKey<Page4State>> _page4Key = [
+    GlobalKey<Page4State>(),
+  ];
+  final List<GlobalKey<Page5State>> _page5Key = [
+    GlobalKey<Page5State>(),
+  ];
+  final List<GlobalKey<Page6State>> _page6Key = [
+    GlobalKey<Page6State>(),
+  ];
   int _curr = 0;
+  bool _isPlaying = false;
   bool _toggleValue = false;
   bool _isExpanded = false;
   bool _clearSelection = false;
@@ -80,28 +99,105 @@ class _SwipePagesState extends State<SwipePages>
       _list = [
         Center(
             child: Page1(
-          key: _page1Key,
+          key: _page1Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
-        Center(child: Page2(isMultipleSelectionEnabled: false)),
-        Center(child: Page3(isMultipleSelectionEnabled: false)),
-        Center(child: Page4(isMultipleSelectionEnabled: false)),
-        Center(child: Page5(isMultipleSelectionEnabled: false)),
-        Center(child: Page6(isMultipleSelectionEnabled: false)),
-        Center(child: Page7(isMultipleSelectionEnabled: false)),
-        Center(child: Page8(isMultipleSelectionEnabled: false)),
-        Center(child: Page9(isMultipleSelectionEnabled: false)),
-        Center(child: Page10(isMultipleSelectionEnabled: false)),
-        Center(child: Page11(isMultipleSelectionEnabled: false)),
-        Center(child: Page12(isMultipleSelectionEnabled: false)),
-        Center(child: Page13(isMultipleSelectionEnabled: false)),
-        Center(child: Page14(isMultipleSelectionEnabled: false)),
-        Center(child: Page15(isMultipleSelectionEnabled: false)),
-        Center(child: Page16(isMultipleSelectionEnabled: false)),
-        Center(child: Page17(isMultipleSelectionEnabled: false)),
-        Center(child: Page18(isMultipleSelectionEnabled: false)),
-        Center(child: Page19(isMultipleSelectionEnabled: false)),
+        Center(
+            child: Page2(
+          key: _page2Key[0],
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page3(
+          key: _page3Key[0],
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page4(
+          key: _page4Key[0],
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page5(
+          key: _page5Key[0],
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page6(
+          key: _page6Key[0],
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page7(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page8(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page9(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page10(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page11(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page12(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page13(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page14(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page15(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page16(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page17(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page18(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
+        Center(
+            child: Page19(
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
       ];
     });
   }
@@ -128,46 +224,105 @@ class _SwipePagesState extends State<SwipePages>
     switch (index) {
       case 0:
         return Page1(
-          key: _page1Key,
+          key: _page1Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 1:
-        return Page2(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page2(
+          key: _page2Key[0],
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 2:
-        return Page3(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page3(
+          key: _page3Key[0],
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 3:
-        return Page4(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page4(
+          key: _page4Key[0],
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 4:
-        return Page5(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page5(
+          key: _page5Key[0],
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 5:
-        return Page6(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page6(
+          key: _page6Key[0],
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 6:
-        return Page7(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page7(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 7:
-        return Page8(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page8(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 8:
-        return Page9(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page9(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 9:
-        return Page10(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page10(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 10:
-        return Page11(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page11(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 11:
-        return Page12(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page12(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 12:
-        return Page13(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page13(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 13:
-        return Page14(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page14(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 14:
-        return Page15(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page15(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 15:
-        return Page16(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page16(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 16:
-        return Page17(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page17(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 17:
-        return Page18(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page18(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 18:
-        return Page19(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+        return Page19(
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       default:
         throw Exception("Invalid page index: $index");
     }
@@ -264,19 +419,153 @@ class _SwipePagesState extends State<SwipePages>
             _audioLists.add(player);
           }
           break;
+        case 3:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 4:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 5:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 6:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 7:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 8:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 9:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 10:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 11:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 12:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 13:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 14:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 15:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 16:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 17:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 18:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
+        case 19:
+          for (int i = 0; i < audioFiles.length; i++) {
+            AudioPlayer player = AudioPlayer();
+            await player.setAsset(audioFiles[i]);
+            _audioLists.add(player);
+          }
+          break;
       }
       int finishedCount = 0;
       for (int i = 0; i < _audioLists.length; i++) {
+        setState(() {
+          _isPlaying = true;
+        });
         await _audioLists[i].play();
         await _audioLists[i].playerStateStream.firstWhere(
             (state) => state.processingState == ProcessingState.completed);
         finishedCount++;
         // Call clearSelection() when all audio files have finished playing
         if (finishedCount == _audioLists.length) {
-          _page1Key.currentState?.clearSelection();
-          print('finished looping!');
+          if (pageId == 1) {
+            _page1Key[0].currentState?.clearSelection();
+          } else if (pageId == 2) {
+            _page2Key[0].currentState?.clearSelection();
+          } else if (pageId == 3) {
+            _page3Key[0].currentState?.clearSelection();
+          } else if (pageId == 4) {
+            _page4Key[0].currentState?.clearSelection();
+          } else if (pageId == 5) {
+            _page5Key[0].currentState?.clearSelection();
+          } else if (pageId == 6) {
+            _page6Key[0].currentState?.clearSelection();
+          }
         }
       }
+      _isPlaying = false;
     } catch (e) {
       print('Error playing audios: $e');
     }
@@ -286,8 +575,13 @@ class _SwipePagesState extends State<SwipePages>
     for (int i = 0; i < _audioLists.length; i++) {
       await _audioLists[i].stop();
     }
-    _page1Key.currentState
-        ?.clearSelection(); // currently will stop page 1 audio
+    _page1Key[0].currentState?.clearSelection();
+    _page2Key[0].currentState?.clearSelection();
+    _page3Key[0].currentState?.clearSelection();
+    _page4Key[0].currentState?.clearSelection();
+    _page5Key[0].currentState?.clearSelection();
+    _page6Key[0].currentState?.clearSelection();
+    _isPlaying = false;
   }
 
   @override
@@ -310,10 +604,8 @@ class _SwipePagesState extends State<SwipePages>
               setState(() {
                 _curr = num;
                 _isMultipleSelectionEnabled = false;
-                _page1Key.currentState
-                    ?.clearSelection(); // On Page Change If Selection is made it will clear all the selection!
-                // _isMultipleSelectionEnabled =
-                //     _list[num].isMultipleSelectionEnabled;
+                _page1Key[0].currentState?.clearSelection();
+
                 _stopPageAudios();
               });
             },
@@ -364,12 +656,63 @@ class _SwipePagesState extends State<SwipePages>
                         } else if (_curr == 1) {
                           audioFiles = AudioListHolder2.audioList;
                           pageId = AudioListHolder2.pageId;
+                        } else if (_curr == 2) {
+                          audioFiles = AudioListHolder3.audioList;
+                          pageId = AudioListHolder3.pageId;
+                        } else if (_curr == 3) {
+                          audioFiles = AudioListHolder4.audioList;
+                          pageId = AudioListHolder4.pageId;
+                        } else if (_curr == 4) {
+                          audioFiles = AudioListHolder5.audioList;
+                          pageId = AudioListHolder5.pageId;
+                        } else if (_curr == 5) {
+                          audioFiles = AudioListHolder6.audioList;
+                          pageId = AudioListHolder6.pageId;
+                        } else if (_curr == 6) {
+                          audioFiles = AudioListHolder7.audioList;
+                          pageId = AudioListHolder7.pageId;
+                        } else if (_curr == 7) {
+                          audioFiles = AudioListHolder8.audioList;
+                          pageId = AudioListHolder8.pageId;
+                        } else if (_curr == 8) {
+                          audioFiles = AudioListHolder9.audioList;
+                          pageId = AudioListHolder9.pageId;
+                        } else if (_curr == 9) {
+                          audioFiles = AudioListHolder10.audioList;
+                          pageId = AudioListHolder10.pageId;
+                        } else if (_curr == 10) {
+                          audioFiles = AudioListHolder11.audioList;
+                          pageId = AudioListHolder11.pageId;
+                        } else if (_curr == 11) {
+                          audioFiles = AudioListHolder12.audioList;
+                          pageId = AudioListHolder12.pageId;
+                        } else if (_curr == 12) {
+                          audioFiles = AudioListHolder13.audioList;
+                          pageId = AudioListHolder13.pageId;
+                        } else if (_curr == 13) {
+                          audioFiles = AudioListHolder14.audioList;
+                          pageId = AudioListHolder14.pageId;
+                        } else if (_curr == 14) {
+                          audioFiles = AudioListHolder15.audioList;
+                          pageId = AudioListHolder15.pageId;
+                        } else if (_curr == 15) {
+                          audioFiles = AudioListHolder16.audioList;
+                          pageId = AudioListHolder16.pageId;
+                        } else if (_curr == 16) {
+                          audioFiles = AudioListHolder17.audioList;
+                          pageId = AudioListHolder17.pageId;
+                        } else if (_curr == 17) {
+                          audioFiles = AudioListHolder18.audioList;
+                          pageId = AudioListHolder18.pageId;
+                        } else if (_curr == 18) {
+                          audioFiles = AudioListHolder19.audioList;
+                          pageId = AudioListHolder19.pageId;
                         }
                         if (audioFiles.isNotEmpty) {
                           print("List of audio files: $audioFiles");
                           await _playPageAudios(pageId, audioFiles);
                         }
-                        print('Curr = $_curr');
+                        //  print('Curr = $_curr');
                       },
                       icon: const Icon(
                         Icons.play_arrow,
@@ -389,9 +732,11 @@ class _SwipePagesState extends State<SwipePages>
                       color: Colors.black,
                     ),
                     child: IconButton(
-                      onPressed: () async {
-                        await _stopPageAudios();
-                      },
+                      onPressed: _isPlaying
+                          ? () async {
+                              await _stopPageAudios();
+                            }
+                          : () {},
                       icon: const Icon(
                         Icons.stop,
                         size: 18,
@@ -434,7 +779,6 @@ class _SwipePagesState extends State<SwipePages>
     );
   }
 }
-
 
 //-> Implemented Correctly!!!
 //-> On Page Change The Select words button is setting to FALSE :)
