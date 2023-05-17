@@ -1,79 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
-class Page1 extends StatefulWidget {
+class Page5 extends StatefulWidget {
   bool isMultipleSelectionEnabled;
-  final Function(bool) updateMultipleSelectionEnabled;
-
-  Page1({
+  Page5({
     Key? key,
     required this.isMultipleSelectionEnabled,
-    required this.updateMultipleSelectionEnabled,
   }) : super(key: key);
 
   @override
-  Page1State createState() => Page1State();
+  Page5State createState() => Page5State();
 }
 
-class Page1State extends State<Page1> {
-  AudioPlayer _audioPlayer = AudioPlayer();
+class Page5State extends State<Page5> {
+  final AudioPlayer _audioPlayer = AudioPlayer();
   List<String> _selectedAudioFiles = [];
   Set<int> _selectedContainers = {};
   List<String> audioFilePaths = [
-    'assets/page1/alif.mp3',
-    'assets/page1/baa1.mp3',
-    'assets/page1/taaah.mp3',
-    'assets/page1/saa.mp3',
-    'assets/page1/geem.mp3',
-    'assets/page1/haa.mp3',
-    'assets/page1/khaa.mp3',
-    'assets/page1/daal.mp3',
-    'assets/page1/zaal.mp3',
-    'assets/page1/raaa.mp3',
-    'assets/page1/zaaa.mp3',
-    'assets/page1/seen.mp3',
-    'assets/page1/sheen.mp3',
-    'assets/page1/suaad.mp3',
     'assets/page1/zaad.mp3',
+    'assets/page5/zad1.mp3',
+    'assets/page5/zad2.mp3',
+    'assets/page5/zad3.mp3',
+    'assets/page5/zad4.mp3',
     'assets/page1/taaah.mp3',
+    'assets/page5/ta01.mp3',
+    'assets/page5/ta02.mp3',
+    'assets/page5/ta03.mp3',
+    'assets/page5/ta04.mp3',
     'assets/page1/zaaah.mp3',
+    'assets/page5/zoad1.mp3',
+    'assets/page5/zoad2.mp3',
+    'assets/page5/zoad3.mp3',
+    'assets/page5/zoad4.mp3',
     'assets/page1/aaen.mp3',
+    'assets/page5/aa1.mp3',
+    'assets/page5/aa2.mp3',
+    'assets/page5/aa3.mp3',
+    'assets/page5/aa4.mp3',
     'assets/page1/gaen.mp3',
-    'assets/page1/faa.mp3',
-    'assets/page1/qaaf.mp3',
-    'assets/page1/kaaf.mp3',
-    'assets/page1/laam.mp3',
-    'assets/page1/meem.mp3',
-    'assets/page1/noon.mp3',
-    'assets/page1/wahoo.mp3',
-    'assets/page1/haah.mp3',
-    'assets/page1/hamza.mp3',
-    'assets/page1/yaa.mp3',
-    'assets/page1/yaah.mp3',
+    'assets/page5/gha1.mp3',
+    'assets/page5/gha2.mp3',
+    'assets/page5/gha3.mp3',
+    'assets/page5/gha4.mp3',
   ];
-
   int? _startIndex;
   int? _endIndex;
-  bool _isPlaying = false;
 
   void _toggleSelection(int index, String filePath) {
     if (_startIndex != null && _endIndex != null) {
-      // Selection already made, clear selection on any tap
       _selectedContainers.clear();
       _selectedAudioFiles.clear();
       _startIndex = null;
       _endIndex = null;
-      AudioListHolder1.audioList.clear();
+      AudioListHolder5.audioList.clear();
       widget.isMultipleSelectionEnabled = false;
-      widget.updateMultipleSelectionEnabled(false);
     } else if (_startIndex == null) {
-      // Start index is null, select start index
       _selectedContainers.clear();
       _selectedAudioFiles.clear();
       _selectedContainers.add(index);
       _startIndex = index;
     } else {
-      // Start index already selected, select end index
       _selectedContainers.clear();
       _selectedAudioFiles.clear();
       int start = _startIndex!;
@@ -82,29 +68,15 @@ class Page1State extends State<Page1> {
         _selectedContainers.add(i);
       }
       _endIndex = index;
-
-      // Add audio files in range of selected containers
       List<String> selectedAudioFiles = [];
       for (int i = start; i <= end; i++) {
         selectedAudioFiles.add(audioFilePaths[i]);
         print('_selectedAudioFiles: $selectedAudioFiles');
       }
-      AudioListHolder1.audioList = selectedAudioFiles;
+      AudioListHolder5.audioList = selectedAudioFiles;
       widget.isMultipleSelectionEnabled = true;
     }
     setState(() {});
-  }
-
-  void clearSelection() {
-    setState(() {
-      _selectedContainers.clear();
-      _selectedAudioFiles.clear();
-      _startIndex = null;
-      _endIndex = null;
-      AudioListHolder1.audioList.clear();
-      widget.isMultipleSelectionEnabled = false;
-      widget.updateMultipleSelectionEnabled(false);
-    });
   }
 
   @override
@@ -132,60 +104,11 @@ class Page1State extends State<Page1> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            border: Border(
-                                right: BorderSide(width: 1),
-                                left: BorderSide(width: 1),
-                                top: BorderSide(width: 1))),
-                        child: Image.asset(
-                          'assets/page1/bis.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 28, 98, 155),
-                            border: Border(
-                              right: BorderSide(width: 1),
-                              left: BorderSide(width: 1),
-                              top: BorderSide(width: 1),
-                              bottom: BorderSide(width: 1),
-                            )),
-                        child: const Text(
-                          ' حروف الهجاء المفردة',
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.white,
-                              letterSpacing: 1.5),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Row(
                       children: [
                         Expanded(
@@ -196,9 +119,59 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        right: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        top: BorderSide(width: 1),
+                                      ),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    2, audioFilePaths[2]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[2]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r1c1p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          if (_selectedContainers.contains(2))
+                                            if (_startIndex == 2)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 2)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                        left: BorderSide(width: 1),
+                                        top: BorderSide(width: 1),
                                       ),
                                     ),
                                     child: InkWell(
@@ -215,10 +188,10 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/jeemp1.png',
+                                            'assets/page5/r2c1p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                           if (_selectedContainers.contains(4))
                                             if (_startIndex == 4)
@@ -250,9 +223,60 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        top: BorderSide(width: 1),
                                       ),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    7, audioFilePaths[7]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[7]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r3c1p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          if (_selectedContainers.contains(7))
+                                            if (_startIndex == 7)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 7)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: 1),
+                                          bottom: BorderSide(width: .5)),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
@@ -268,10 +292,10 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/raap1.png',
+                                            'assets/page5/r4c1p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                           if (_selectedContainers.contains(9))
                                             if (_startIndex == 9)
@@ -302,10 +326,61 @@ class Page1State extends State<Page1> {
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: .5),
+                                          bottom: BorderSide(width: .5)),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    12, audioFilePaths[12]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[12]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r5c1p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          if (_selectedContainers.contains(12))
+                                            if (_startIndex == 12)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 12)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: .5),
+                                          bottom: BorderSide(width: .5)),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
@@ -321,10 +396,10 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/zoadp1.png',
+                                            'assets/page5/r6c1p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                           if (_selectedContainers.contains(14))
                                             if (_startIndex == 14)
@@ -356,9 +431,60 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        top: BorderSide(width: .5),
                                       ),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    17, audioFilePaths[17]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[17]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r7c1p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          if (_selectedContainers.contains(17))
+                                            if (_startIndex == 17)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 17)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: 1),
+                                          bottom: BorderSide(width: 1)),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
@@ -374,7 +500,7 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/faap1.png',
+                                            'assets/page5/r8c1p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.fill,
@@ -409,8 +535,59 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        bottom: BorderSide(width: 1),
+                                      ),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    22, audioFilePaths[22]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[22]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r9c1p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.fill,
+                                          ),
+                                          if (_selectedContainers.contains(22))
+                                            if (_startIndex == 22)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 22)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                        left: BorderSide(width: 1),
+                                        bottom: BorderSide(width: 1),
                                       ),
                                     ),
                                     child: InkWell(
@@ -427,7 +604,7 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/noonp1.png',
+                                            'assets/page5/r10c1p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.fill,
@@ -457,36 +634,41 @@ class Page1State extends State<Page1> {
                                               )
                                         ]))),
                               ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
                               Expanded(
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: 1),
+                                          right: BorderSide(width: 1)),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
                                             ? () {
                                                 _toggleSelection(
-                                                    29, audioFilePaths[29]);
+                                                    1, audioFilePaths[1]);
                                               }
                                             : () async {
                                                 await _audioPlayer.stop();
                                                 await _audioPlayer.setAsset(
-                                                    audioFilePaths[29]);
+                                                    audioFilePaths[1]);
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/yap1.png',
+                                            'assets/page5/r1c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
-                                          if (_selectedContainers.contains(29))
-                                            if (_startIndex == 29)
+                                          if (_selectedContainers.contains(1))
+                                            if (_startIndex == 1)
                                               Positioned(
                                                 right: 0,
                                                 top: 0,
@@ -497,7 +679,7 @@ class Page1State extends State<Page1> {
                                                   height: 20,
                                                 ),
                                               )
-                                            else if (_endIndex == 29)
+                                            else if (_endIndex == 1)
                                               Positioned(
                                                 left: 0,
                                                 top: 0,
@@ -510,41 +692,32 @@ class Page1State extends State<Page1> {
                                               )
                                         ]))),
                               ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
                               Expanded(
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: 1),
+                                          right: BorderSide(width: 1)),
                                     ),
                                     child: InkWell(
-                                      onTap: widget.isMultipleSelectionEnabled
-                                          ? () {
-                                              _toggleSelection(
-                                                  3, audioFilePaths[3]);
-                                            }
-                                          : () async {
-                                              await _audioPlayer.stop();
-                                              await _audioPlayer
-                                                  .setAsset(audioFilePaths[3]);
-                                              await _audioPlayer.play();
-                                            },
-                                      child: Stack(
-                                        children: [
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    3, audioFilePaths[3]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[3]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/saap1.png',
+                                            'assets/page5/r2c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                           if (_selectedContainers.contains(3))
                                             if (_startIndex == 3)
@@ -569,19 +742,67 @@ class Page1State extends State<Page1> {
                                                   height: 20,
                                                 ),
                                               )
-                                        ],
-                                      ),
-                                    )),
+                                        ]))),
                               ),
                               Expanded(
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
+                                        top: BorderSide(width: 1),
                                       ),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    6, audioFilePaths[6]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[6]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r3c2p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          if (_selectedContainers.contains(6))
+                                            if (_startIndex == 6)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 6)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: 1),
+                                          bottom: BorderSide(width: .5)),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
@@ -597,10 +818,10 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/zaalp1.png',
+                                            'assets/page5/r4c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                           if (_selectedContainers.contains(8))
                                             if (_startIndex == 8)
@@ -631,10 +852,60 @@ class Page1State extends State<Page1> {
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: .5),
+                                          bottom: BorderSide(width: .5)),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    11, audioFilePaths[11]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[11]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r5c2p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          if (_selectedContainers.contains(11))
+                                            if (_startIndex == 11)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 11)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
+                                        top: BorderSide(width: .5),
                                       ),
                                     ),
                                     child: InkWell(
@@ -651,10 +922,10 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/saadp1.png',
+                                            'assets/page5/r6c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                           if (_selectedContainers.contains(13))
                                             if (_startIndex == 13)
@@ -686,10 +957,60 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
+                                        top: BorderSide(width: 1),
                                       ),
+                                    ),
+                                    child: InkWell(
+                                        onTap: widget.isMultipleSelectionEnabled
+                                            ? () {
+                                                _toggleSelection(
+                                                    16, audioFilePaths[16]);
+                                              }
+                                            : () async {
+                                                await _audioPlayer.stop();
+                                                await _audioPlayer.setAsset(
+                                                    audioFilePaths[16]);
+                                                await _audioPlayer.play();
+                                              },
+                                        child: Stack(children: [
+                                          Image.asset(
+                                            'assets/page5/r7c2p5.png',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.fill,
+                                          ),
+                                          if (_selectedContainers.contains(16))
+                                            if (_startIndex == 16)
+                                              Positioned(
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_left.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                            else if (_endIndex == 16)
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                child: Image.asset(
+                                                  'assets/arrow_right.png',
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                              )
+                                        ]))),
+                              ),
+                              Expanded(
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                          left: BorderSide(width: 1),
+                                          top: BorderSide(width: 1),
+                                          bottom: BorderSide(width: 1)),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
@@ -705,7 +1026,7 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/gaeenp1.png',
+                                            'assets/page5/r8c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.fill,
@@ -740,661 +1061,7 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    23, audioFilePaths[23]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[23]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/meemp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(23))
-                                            if (_startIndex == 23)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 23)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    28, audioFilePaths[28]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[28]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/yaap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(28))
-                                            if (_startIndex == 28)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 28)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: .5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                      onTap: widget.isMultipleSelectionEnabled
-                                          ? () {
-                                              _toggleSelection(
-                                                  2, audioFilePaths[2]);
-                                            }
-                                          : () async {
-                                              await _audioPlayer.stop();
-                                              await _audioPlayer
-                                                  .setAsset(audioFilePaths[2]);
-                                              await _audioPlayer.play();
-                                            },
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            'assets/page1/taap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(2))
-                                            if (_startIndex == 2)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 2)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ],
-                                      ),
-                                    )),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    7, audioFilePaths[7]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[7]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/daalp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(7))
-                                            if (_startIndex == 7)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 7)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    12, audioFilePaths[12]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[12]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/sheenp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(12))
-                                            if (_startIndex == 12)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 12)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    17, audioFilePaths[17]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[17]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/aeenp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(17))
-                                            if (_startIndex == 17)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 17)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    22, audioFilePaths[22]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[22]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/laamp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(22))
-                                            if (_startIndex == 22)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 22)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    27, audioFilePaths[27]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[27]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/hamzap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(27))
-                                            if (_startIndex == 27)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 27)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                      onTap: widget.isMultipleSelectionEnabled
-                                          ? () {
-                                              _toggleSelection(
-                                                  1, audioFilePaths[1]);
-                                            }
-                                          : () async {
-                                              await _audioPlayer.stop();
-                                              await _audioPlayer
-                                                  .setAsset(audioFilePaths[1]);
-                                              await _audioPlayer.play();
-                                            },
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            'assets/page1/bap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(1))
-                                            if (_startIndex == 1)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 1)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ],
-                                      ),
-                                    )),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    6, audioFilePaths[6]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[6]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/khap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(6))
-                                            if (_startIndex == 6)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 6)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    11, audioFilePaths[11]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[11]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/seenp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(11))
-                                            if (_startIndex == 11)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 11)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    16, audioFilePaths[16]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[16]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/zoap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(16))
-                                            if (_startIndex == 16)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 16)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        bottom: BorderSide(width: 1),
                                       ),
                                     ),
                                     child: InkWell(
@@ -1411,7 +1078,7 @@ class Page1State extends State<Page1> {
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/qaafp1.png',
+                                            'assets/page5/r9c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.fill,
@@ -1445,32 +1112,31 @@ class Page1State extends State<Page1> {
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
-                                        left: BorderSide(width: .5),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        left: BorderSide(width: 1),
+                                        bottom: BorderSide(width: 1),
                                       ),
                                     ),
                                     child: InkWell(
                                         onTap: widget.isMultipleSelectionEnabled
                                             ? () {
                                                 _toggleSelection(
-                                                    26, audioFilePaths[26]);
+                                                    23, audioFilePaths[23]);
                                               }
                                             : () async {
                                                 await _audioPlayer.stop();
                                                 await _audioPlayer.setAsset(
-                                                    audioFilePaths[26]);
+                                                    audioFilePaths[23]);
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
                                           Image.asset(
-                                            'assets/page1/haap1.png',
+                                            'assets/page5/r10c2p5.png',
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.fill,
                                           ),
-                                          if (_selectedContainers.contains(26))
-                                            if (_startIndex == 26)
+                                          if (_selectedContainers.contains(23))
+                                            if (_startIndex == 23)
                                               Positioned(
                                                 right: 0,
                                                 top: 0,
@@ -1481,340 +1147,7 @@ class Page1State extends State<Page1> {
                                                   height: 20,
                                                 ),
                                               )
-                                            else if (_endIndex == 26)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        right: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkResponse(
-                                      onTap: widget.isMultipleSelectionEnabled
-                                          ? () {
-                                              _toggleSelection(
-                                                  0, audioFilePaths[0]);
-                                            }
-                                          : () async {
-                                              await _audioPlayer.stop();
-                                              await _audioPlayer
-                                                  .setAsset(audioFilePaths[0]);
-                                              await _audioPlayer.play();
-                                            },
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            'assets/page1/alifp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(0))
-                                            if (_startIndex == 0)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 0)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ],
-                                      ),
-                                    )),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 1),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    5, audioFilePaths[5]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[5]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/hap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(5))
-                                            if (_startIndex == 5)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 5)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 1),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    10, audioFilePaths[10]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[10]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/zap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(10))
-                                            if (_startIndex == 10)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 10)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 1),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    15, audioFilePaths[15]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[15]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/tap1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(15))
-                                            if (_startIndex == 15)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 15)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 1),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    20, audioFilePaths[20]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[20]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/qafp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(20))
-                                            if (_startIndex == 20)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 20)
-                                              Positioned(
-                                                left: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_right.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                        ]))),
-                              ),
-                              Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                      border: Border(
-                                        left: BorderSide(width: 1),
-                                        top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 1),
-                                        bottom: BorderSide(width: 0.5),
-                                      ),
-                                    ),
-                                    child: InkWell(
-                                        onTap: widget.isMultipleSelectionEnabled
-                                            ? () {
-                                                _toggleSelection(
-                                                    25, audioFilePaths[25]);
-                                              }
-                                            : () async {
-                                                await _audioPlayer.stop();
-                                                await _audioPlayer.setAsset(
-                                                    audioFilePaths[25]);
-                                                await _audioPlayer.play();
-                                              },
-                                        child: Stack(children: [
-                                          Image.asset(
-                                            'assets/page1/wowp1.png',
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.fill,
-                                          ),
-                                          if (_selectedContainers.contains(25))
-                                            if (_startIndex == 25)
-                                              Positioned(
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: Image.asset(
-                                                  'assets/arrow_left.png',
-                                                  width: 20,
-                                                  height: 20,
-                                                ),
-                                              )
-                                            else if (_endIndex == 25)
+                                            else if (_endIndex == 23)
                                               Positioned(
                                                 left: 0,
                                                 top: 0,
@@ -1833,6 +1166,275 @@ class Page1State extends State<Page1> {
                       ],
                     ),
                   ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(width: 1.5),
+                                    top: BorderSide(width: 1),
+                                    right: BorderSide(width: 1)),
+                              ),
+                              child: InkWell(
+                                  onTap: widget.isMultipleSelectionEnabled
+                                      ? () {
+                                          _toggleSelection(
+                                              0, audioFilePaths[0]);
+                                        }
+                                      : () async {
+                                          await _audioPlayer.stop();
+                                          await _audioPlayer
+                                              .setAsset(audioFilePaths[0]);
+                                          await _audioPlayer.play();
+                                        },
+                                  child: Stack(children: [
+                                    Image.asset(
+                                      'assets/page5/c1p5.png',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    if (_selectedContainers.contains(0))
+                                      if (_startIndex == 0)
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_left.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                      else if (_endIndex == 0)
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_right.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                  ]))),
+                        ),
+                        Expanded(
+                          child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                    left: BorderSide(width: 1),
+                                    bottom: BorderSide(width: .5),
+                                    right: BorderSide(width: 1)),
+                              ),
+                              child: InkWell(
+                                  onTap: widget.isMultipleSelectionEnabled
+                                      ? () {
+                                          _toggleSelection(
+                                              5, audioFilePaths[5]);
+                                        }
+                                      : () async {
+                                          await _audioPlayer.stop();
+                                          await _audioPlayer
+                                              .setAsset(audioFilePaths[5]);
+                                          await _audioPlayer.play();
+                                        },
+                                  child: Stack(children: [
+                                    Image.asset(
+                                      'assets/page5/c2p5.png',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    if (_selectedContainers.contains(5))
+                                      if (_startIndex == 5)
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_left.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                      else if (_endIndex == 5)
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_right.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                  ]))),
+                        ),
+                        Expanded(
+                          child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                    left: BorderSide(width: 1),
+                                    top: BorderSide(width: 1),
+                                    right: BorderSide(width: 1)),
+                              ),
+                              child: InkWell(
+                                  onTap: widget.isMultipleSelectionEnabled
+                                      ? () {
+                                          _toggleSelection(
+                                              10, audioFilePaths[10]);
+                                        }
+                                      : () async {
+                                          await _audioPlayer.stop();
+                                          await _audioPlayer
+                                              .setAsset(audioFilePaths[10]);
+                                          await _audioPlayer.play();
+                                        },
+                                  child: Stack(children: [
+                                    Image.asset(
+                                      'assets/page5/c3p5.png',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    if (_selectedContainers.contains(10))
+                                      if (_startIndex == 10)
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_left.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                      else if (_endIndex == 10)
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_right.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                  ]))),
+                        ),
+                        Expanded(
+                          child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                    left: BorderSide(width: 1),
+                                    top: BorderSide(width: 1),
+                                    right: BorderSide(width: 1)),
+                              ),
+                              child: InkWell(
+                                  onTap: widget.isMultipleSelectionEnabled
+                                      ? () {
+                                          _toggleSelection(
+                                              15, audioFilePaths[15]);
+                                        }
+                                      : () async {
+                                          await _audioPlayer.stop();
+                                          await _audioPlayer
+                                              .setAsset(audioFilePaths[15]);
+                                          await _audioPlayer.play();
+                                        },
+                                  child: Stack(children: [
+                                    Image.asset(
+                                      'assets/page5/c4p5.png',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    if (_selectedContainers.contains(15))
+                                      if (_startIndex == 15)
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_left.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                      else if (_endIndex == 15)
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_right.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                  ]))),
+                        ),
+                        Expanded(
+                          child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  left: BorderSide(width: 1),
+                                  top: BorderSide(width: 1),
+                                  right: BorderSide(width: 1),
+                                  bottom: BorderSide(width: 1),
+                                ),
+                              ),
+                              child: InkWell(
+                                  onTap: widget.isMultipleSelectionEnabled
+                                      ? () {
+                                          _toggleSelection(
+                                              20, audioFilePaths[20]);
+                                        }
+                                      : () async {
+                                          await _audioPlayer.stop();
+                                          await _audioPlayer
+                                              .setAsset(audioFilePaths[20]);
+                                          await _audioPlayer.play();
+                                        },
+                                  child: Stack(children: [
+                                    Image.asset(
+                                      'assets/page5/c5p5.png',
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    if (_selectedContainers.contains(20))
+                                      if (_startIndex == 20)
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_left.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                      else if (_endIndex == 20)
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: Image.asset(
+                                            'assets/arrow_right.png',
+                                            width: 20,
+                                            height: 20,
+                                          ),
+                                        )
+                                  ]))),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -1843,22 +1445,7 @@ class Page1State extends State<Page1> {
   }
 }
 
-class AudioListHolder1 {
+class AudioListHolder5 {
   static List<String> audioList = [];
-  static int pageId = 1;
+  static int pageId = 5;
 }
-
-//-> TESTS CLEARED
-//-> ~ Single AudioPlay working
-//-> ~ Multiple Select working tested Scenarios:
-//-> ~ When the single letter is selected and I press on play button
-//->     It wont play untill the range is selected.
-//-> ~ Audio is cleared when the range is cleared.
-//-> ~ when range is cleared _isMultipleSelectionEnabled is set to false.
-//-> ~ AudioPlay is much faster now!!!
-
-
-//->  TODO TESTS
-//->  ~When I SWIPE TO NEXT PAGE THE RANGE SHOULD BE CLEARED AND THE
-//->  VALUE OF isMultipleSelectionEnabled should be set to false and
-//->  should be updated back in SwipePages.

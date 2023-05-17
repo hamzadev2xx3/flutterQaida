@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_qaida/screens/qaidapage10.dart';
-import 'package:flutter_qaida/screens/qaidapage11.dart';
-import 'package:flutter_qaida/screens/qaidapage12.dart';
-import 'package:flutter_qaida/screens/qaidapage13.dart';
-import 'package:flutter_qaida/screens/qaidapage14.dart';
-import 'package:flutter_qaida/screens/qaidapage15.dart';
-import 'package:flutter_qaida/screens/qaidapage16.dart';
-import 'package:flutter_qaida/screens/qaidapage17.dart';
-import 'package:flutter_qaida/screens/qaidapage18.dart';
-import 'package:flutter_qaida/screens/qaidapage19.dart';
-import 'package:flutter_qaida/screens/qaidapage2.dart';
-import 'package:flutter_qaida/screens/qaidapage3.dart';
-import 'package:flutter_qaida/screens/qaidapage4.dart';
-import 'package:flutter_qaida/screens/customPage.dart';
-import 'package:flutter_qaida/screens/qaidapage5.dart';
-import 'package:flutter_qaida/screens/qaidapage6.dart';
-import 'package:flutter_qaida/screens/qaidapage7.dart';
-import 'package:flutter_qaida/screens/qaidapage8.dart';
-import 'package:flutter_qaida/screens/qaidapage9.dart';
-import 'package:flutter_qaida/screens/page1.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:flutter_qaida/screens/customPage.dart';
+import 'package:flutter_qaida/screens/page1.dart';
+import 'package:flutter_qaida/screens/page2.dart';
+import 'package:flutter_qaida/screens/page3.dart';
+import 'package:flutter_qaida/screens/page4.dart';
+import 'package:flutter_qaida/screens/page5.dart';
+import 'package:flutter_qaida/screens/page6.dart';
+import 'package:flutter_qaida/screens/page7.dart';
+import 'package:flutter_qaida/screens/page8.dart';
+import 'package:flutter_qaida/screens/page9.dart';
+import 'package:flutter_qaida/screens/page10.dart';
+import 'package:flutter_qaida/screens/page11.dart';
+import 'package:flutter_qaida/screens/page12.dart';
+import 'package:flutter_qaida/screens/page13.dart';
+import 'package:flutter_qaida/screens/page14.dart';
+import 'package:flutter_qaida/screens/page15.dart';
+import 'package:flutter_qaida/screens/page16.dart';
+import 'package:flutter_qaida/screens/page17.dart';
+import 'package:flutter_qaida/screens/page18.dart';
+import 'package:flutter_qaida/screens/page19.dart';
 
 class SwipePages extends StatefulWidget {
   const SwipePages({super.key});
@@ -40,15 +40,50 @@ class _SwipePagesState extends State<SwipePages>
   late AnimationController _controller;
   bool _isMultipleSelectionEnabled = false;
   AudioPlayer _audioPlayer = AudioPlayer();
-  List<AudioPlayer> _audioPlayers1 = [];
+  List<AudioPlayer> _audioLists = [];
   PageController controller = PageController();
   final TextStyle _buttonTextStyle = const TextStyle(color: Colors.black);
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    );
+    controller = PageController(initialPage: _curr);
+    _initList();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    _audioPlayer.dispose();
+    for (int i = 0; i < _audioLists.length; i++) {
+      _audioLists[i].dispose();
+    }
+    super.dispose();
+  }
+
+  void updateMultipleSelectionEnabled(bool value) {
+    setState(() {
+      _isMultipleSelectionEnabled = value;
+    });
+  }
 
   void _initList() {
     setState(() {
       _list = [
         Center(
-            child: Page1(key: _page1Key, isMultipleSelectionEnabled: false)), //
+            child: Page1(
+          key: _page1Key,
+          isMultipleSelectionEnabled: false,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        )),
         Center(child: Page2(isMultipleSelectionEnabled: false)),
         Center(child: Page3(isMultipleSelectionEnabled: false)),
         Center(child: Page4(isMultipleSelectionEnabled: false)),
@@ -69,21 +104,6 @@ class _SwipePagesState extends State<SwipePages>
         Center(child: Page19(isMultipleSelectionEnabled: false)),
       ];
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
-    );
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    );
-    controller = PageController(initialPage: _curr);
-    _initList();
   }
 
   void _updateList() {
@@ -108,8 +128,10 @@ class _SwipePagesState extends State<SwipePages>
     switch (index) {
       case 0:
         return Page1(
-            key: _page1Key,
-            isMultipleSelectionEnabled: isMultipleSelectionEnabled);
+          key: _page1Key,
+          isMultipleSelectionEnabled: isMultipleSelectionEnabled,
+          updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
+        );
       case 1:
         return Page2(isMultipleSelectionEnabled: isMultipleSelectionEnabled);
       case 2:
@@ -151,16 +173,6 @@ class _SwipePagesState extends State<SwipePages>
     }
   }
 
-  @override
-  void dispose() {
-    controller.dispose();
-    _audioPlayer.dispose();
-    for (int i = 0; i < _audioPlayers1.length; i++) {
-      _audioPlayers1[i].dispose();
-    }
-    super.dispose();
-  }
-
   void _showMenu() {
     showModalBottomSheet(
       context: context,
@@ -184,25 +196,25 @@ class _SwipePagesState extends State<SwipePages>
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    const Text(
-                      'Non-stop reading',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    const SizedBox(width: 16),
-                    Switch(
-                      value: _toggleValue,
-                      onChanged: (value) {
-                        setState(() {
-                          _toggleValue = value;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
+                // const SizedBox(height: 16),
+                // Row(
+                //   children: [
+                //     const Text(
+                //       'Non-stop reading',
+                //       style: TextStyle(fontSize: 16),
+                //     ),
+                //     const SizedBox(width: 16),
+                //     Switch(
+                //       value: _toggleValue,
+                //       onChanged: (value) {
+                //         setState(() {
+                //           _toggleValue = value;
+                //         });
+                //       },
+                //     ),
+                //   ],
+                // ),
+                // const SizedBox(height: 16),
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
@@ -235,32 +247,32 @@ class _SwipePagesState extends State<SwipePages>
 
   Future<void> _playPageAudios(int pageId, List<String> audioFiles) async {
     try {
-      _audioPlayers1.clear();
+      _audioLists.clear();
       List<AudioPlayer> audioPlayer = [];
       switch (pageId) {
         case 1:
           for (int i = 0; i < audioFiles.length; i++) {
             AudioPlayer player = AudioPlayer();
             await player.setAsset(audioFiles[i]);
-            _audioPlayers1.add(player);
+            _audioLists.add(player);
           }
           break;
         case 2:
           for (int i = 0; i < audioFiles.length; i++) {
             AudioPlayer player = AudioPlayer();
             await player.setAsset(audioFiles[i]);
-            _audioPlayers1.add(player);
+            _audioLists.add(player);
           }
           break;
       }
       int finishedCount = 0;
-      for (int i = 0; i < _audioPlayers1.length; i++) {
-        await _audioPlayers1[i].play();
-        await _audioPlayers1[i].playerStateStream.firstWhere(
+      for (int i = 0; i < _audioLists.length; i++) {
+        await _audioLists[i].play();
+        await _audioLists[i].playerStateStream.firstWhere(
             (state) => state.processingState == ProcessingState.completed);
         finishedCount++;
         // Call clearSelection() when all audio files have finished playing
-        if (finishedCount == _audioPlayers1.length) {
+        if (finishedCount == _audioLists.length) {
           _page1Key.currentState?.clearSelection();
           print('finished looping!');
         }
@@ -271,8 +283,8 @@ class _SwipePagesState extends State<SwipePages>
   }
 
   Future<void> _stopPageAudios() async {
-    for (int i = 0; i < _audioPlayers1.length; i++) {
-      await _audioPlayers1[i].stop();
+    for (int i = 0; i < _audioLists.length; i++) {
+      await _audioLists[i].stop();
     }
     _page1Key.currentState
         ?.clearSelection(); // currently will stop page 1 audio
@@ -346,8 +358,6 @@ class _SwipePagesState extends State<SwipePages>
                       onPressed: () async {
                         List<String> audioFiles = [];
                         int pageId = -1;
-                        // StatefulWidget pageWidget;
-
                         if (_curr == 0) {
                           audioFiles = AudioListHolder1.audioList;
                           pageId = AudioListHolder1.pageId;
