@@ -49,6 +49,45 @@ class _SwipePagesState extends State<SwipePages>
   final List<GlobalKey<Page6State>> _page6Key = [
     GlobalKey<Page6State>(),
   ];
+  final List<GlobalKey<Page7State>> _page7Key = [
+    GlobalKey<Page7State>(),
+  ];
+  final List<GlobalKey<Page8State>> _page8Key = [
+    GlobalKey<Page8State>(),
+  ];
+  final List<GlobalKey<Page9State>> _page9Key = [
+    GlobalKey<Page9State>(),
+  ];
+  final List<GlobalKey<Page10State>> _page10Key = [
+    GlobalKey<Page10State>(),
+  ];
+  final List<GlobalKey<Page11State>> _page11Key = [
+    GlobalKey<Page11State>(),
+  ];
+  final List<GlobalKey<Page12State>> _page12Key = [
+    GlobalKey<Page12State>(),
+  ];
+  final List<GlobalKey<Page13State>> _page13Key = [
+    GlobalKey<Page13State>(),
+  ];
+  final List<GlobalKey<Page14State>> _page14Key = [
+    GlobalKey<Page14State>(),
+  ];
+  final List<GlobalKey<Page15State>> _page15Key = [
+    GlobalKey<Page15State>(),
+  ];
+  final List<GlobalKey<Page16State>> _page16Key = [
+    GlobalKey<Page16State>(),
+  ];
+  final List<GlobalKey<Page17State>> _page17Key = [
+    GlobalKey<Page17State>(),
+  ];
+  final List<GlobalKey<Page18State>> _page18Key = [
+    GlobalKey<Page18State>(),
+  ];
+  final List<GlobalKey<Page19State>> _page19Key = [
+    GlobalKey<Page19State>(),
+  ];
   int _curr = 0;
   bool _isPlaying = false;
   bool _toggleValue = false;
@@ -135,66 +174,79 @@ class _SwipePagesState extends State<SwipePages>
         )),
         Center(
             child: Page7(
+          key: _page7Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page8(
+          key: _page8Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page9(
+          key: _page9Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page10(
+          key: _page10Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page11(
+          key: _page11Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page12(
+          key: _page12Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page13(
+          key: _page13Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page14(
+          key: _page14Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page15(
+          key: _page15Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page16(
+          key: _page16Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page17(
+          key: _page17Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page18(
+          key: _page18Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
         Center(
             child: Page19(
+          key: _page19Key[0],
           isMultipleSelectionEnabled: false,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         )),
@@ -260,66 +312,79 @@ class _SwipePagesState extends State<SwipePages>
         );
       case 6:
         return Page7(
+          key: _page7Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 7:
         return Page8(
+          key: _page8Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 8:
         return Page9(
+          key: _page9Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 9:
         return Page10(
+          key: _page10Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 10:
         return Page11(
+          key: _page11Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 11:
         return Page12(
+          key: _page12Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 12:
         return Page13(
+          key: _page13Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 13:
         return Page14(
+          key: _page14Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 14:
         return Page15(
+          key: _page15Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 15:
         return Page16(
+          key: _page16Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 16:
         return Page17(
+          key: _page17Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 17:
         return Page18(
+          key: _page18Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
       case 18:
         return Page19(
+          key: _page19Key[0],
           isMultipleSelectionEnabled: isMultipleSelectionEnabled,
           updateMultipleSelectionEnabled: updateMultipleSelectionEnabled,
         );
@@ -339,7 +404,7 @@ class _SwipePagesState extends State<SwipePages>
         return StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
           return Container(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.15,
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -562,6 +627,32 @@ class _SwipePagesState extends State<SwipePages>
             _page5Key[0].currentState?.clearSelection();
           } else if (pageId == 6) {
             _page6Key[0].currentState?.clearSelection();
+          } else if (pageId == 7) {
+            _page7Key[0].currentState?.clearSelection();
+          } else if (pageId == 8) {
+            _page8Key[0].currentState?.clearSelection();
+          } else if (pageId == 9) {
+            _page9Key[0].currentState?.clearSelection();
+          } else if (pageId == 10) {
+            _page10Key[0].currentState?.clearSelection();
+          } else if (pageId == 11) {
+            _page11Key[0].currentState?.clearSelection();
+          } else if (pageId == 12) {
+            _page12Key[0].currentState?.clearSelection();
+          } else if (pageId == 13) {
+            _page13Key[0].currentState?.clearSelection();
+          } else if (pageId == 14) {
+            _page14Key[0].currentState?.clearSelection();
+          } else if (pageId == 15) {
+            _page15Key[0].currentState?.clearSelection();
+          } else if (pageId == 16) {
+            _page16Key[0].currentState?.clearSelection();
+          } else if (pageId == 17) {
+            _page17Key[0].currentState?.clearSelection();
+          } else if (pageId == 18) {
+            _page18Key[0].currentState?.clearSelection();
+          } else if (pageId == 19) {
+            _page19Key[0].currentState?.clearSelection();
           }
         }
       }
@@ -581,6 +672,19 @@ class _SwipePagesState extends State<SwipePages>
     _page4Key[0].currentState?.clearSelection();
     _page5Key[0].currentState?.clearSelection();
     _page6Key[0].currentState?.clearSelection();
+    _page7Key[0].currentState?.clearSelection();
+    _page8Key[0].currentState?.clearSelection();
+    _page9Key[0].currentState?.clearSelection();
+    _page10Key[0].currentState?.clearSelection();
+    _page11Key[0].currentState?.clearSelection();
+    _page12Key[0].currentState?.clearSelection();
+    _page13Key[0].currentState?.clearSelection();
+    _page14Key[0].currentState?.clearSelection();
+    _page15Key[0].currentState?.clearSelection();
+    _page16Key[0].currentState?.clearSelection();
+    _page17Key[0].currentState?.clearSelection();
+    _page18Key[0].currentState?.clearSelection();
+    _page19Key[0].currentState?.clearSelection();
     _isPlaying = false;
   }
 
