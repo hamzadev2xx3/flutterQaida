@@ -130,7 +130,7 @@ class Page9State extends State<Page9> {
                           },
                           child: Image.asset(
                             'assets/page9/p9img1.png',
-                            fit: BoxFit.fill,
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),
@@ -168,11 +168,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img2.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img2.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(3))
                                       if (_startIndex == 3)
@@ -219,11 +221,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img3.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img3.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(2))
                                       if (_startIndex == 2)
@@ -270,11 +274,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img4.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img4.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(1))
                                       if (_startIndex == 1)
@@ -321,11 +327,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img5.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img5.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(0))
                                       if (_startIndex == 0)
@@ -380,11 +388,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img6.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img6.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(7))
                                       if (_startIndex == 7)
@@ -431,11 +441,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img7.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img7.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(6))
                                       if (_startIndex == 6)
@@ -482,11 +494,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img8.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img8.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(5))
                                       if (_startIndex == 5)
@@ -533,11 +547,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img9.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img9.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(4))
                                       if (_startIndex == 4)
@@ -592,11 +608,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img10.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img10.png',
+                                        width: 200,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(9))
                                       if (_startIndex == 9)
@@ -642,11 +660,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img11.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img11.png',
+                                        width: 200,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(8))
                                       if (_startIndex == 8)
@@ -693,7 +713,7 @@ class Page9State extends State<Page9> {
                                 },
                                 child: Image.asset(
                                   'assets/page9/p9img12.png',
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                             ),
@@ -727,11 +747,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img13.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img13.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(12))
                                       if (_startIndex == 12)
@@ -779,11 +801,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img14.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img14.png',
+                                        width: 200,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(11))
                                       if (_startIndex == 11)
@@ -830,11 +854,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img15.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img15.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(10))
                                       if (_startIndex == 10)
@@ -889,11 +915,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img16.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img16.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(16))
                                       if (_startIndex == 16)
@@ -940,11 +968,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img17.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img17.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(15))
                                       if (_startIndex == 15)
@@ -991,11 +1021,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img18.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img18.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(14))
                                       if (_startIndex == 14)
@@ -1042,11 +1074,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img19.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img19.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(13))
                                       if (_startIndex == 13)
@@ -1101,11 +1135,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img20.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img20.png',
+                                        width: 100,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(19))
                                       if (_startIndex == 19)
@@ -1152,11 +1188,14 @@ class Page9State extends State<Page9> {
                                     },
                               child: Stack(
                                 children: [
-                                  Image.asset(
-                                    'assets/page9/p9img21.png',
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    fit: BoxFit.fill,
+                                  Center(
+                                    child: Image.asset(
+                                      'assets/page9/p9img21.png',
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
+                                      height: 140,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
                                   if (_selectedContainers.contains(18))
                                     if (_startIndex == 18)
@@ -1207,11 +1246,13 @@ class Page9State extends State<Page9> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page9/p9img22.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    Center(
+                                      child: Image.asset(
+                                        'assets/page9/p9img22.png',
+                                        width: 200,
+                                        height: 140,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(17))
                                       if (_startIndex == 17)
