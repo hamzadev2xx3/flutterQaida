@@ -1112,7 +1112,7 @@ class Page18State extends State<Page18> {
                             decoration: const BoxDecoration(
                               border: Border(
                                   right: BorderSide(width: 1),
-                                  left: BorderSide(width: 1),
+                                  // left: BorderSide(width: 1),
                                   bottom: BorderSide(width: 1)),
                             ),
                             child: InkWell(
