@@ -136,11 +136,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img1.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img1.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(1))
                                       if (_startIndex == 1)
@@ -188,11 +196,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img2.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img2.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(0))
                                       if (_startIndex == 0)
@@ -248,11 +264,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img3.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img3.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(3))
                                       if (_startIndex == 3)
@@ -300,11 +324,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img4.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img4.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(2))
                                       if (_startIndex == 2)
@@ -342,7 +374,7 @@ class Page17State extends State<Page17> {
                           child: Container(
                               decoration: const BoxDecoration(
                                 border: Border(
-                                    right: BorderSide(width: 1.5),
+                                    right: BorderSide(width: 1),
                                     top: BorderSide(width: 0.5),
                                     bottom: BorderSide(width: 0.5),
                                     left: BorderSide(width: 1)),
@@ -360,11 +392,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img5.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 0.9,
+                                          child: Image.asset(
+                                            'assets/page17/p17img5.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(6))
                                       if (_startIndex == 6)
@@ -413,11 +453,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img6.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 0.9,
+                                          child: Image.asset(
+                                            'assets/page17/p17img6.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(5))
                                       if (_startIndex == 5)
@@ -467,11 +515,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img7.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img7.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(4))
                                       if (_startIndex == 4)
@@ -526,11 +582,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img8.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img8.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(8))
                                       if (_startIndex == 8)
@@ -578,11 +642,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img9.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img9.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(7))
                                       if (_startIndex == 7)
@@ -621,9 +693,9 @@ class Page17State extends State<Page17> {
                               decoration: const BoxDecoration(
                                 border: Border(
                                     right: BorderSide(width: 1),
-                                    top: BorderSide(width: 0.5),
+                                    top: BorderSide(width: 1),
                                     left: BorderSide(width: 1),
-                                    bottom: BorderSide(width: 0.5)),
+                                    bottom: BorderSide(width: 1)),
                               ),
                               child: InkWell(
                                   onTap: widget.isMultipleSelectionEnabled
@@ -638,11 +710,19 @@ class Page17State extends State<Page17> {
                                           await _audioPlayer.play();
                                         },
                                   child: Stack(children: [
-                                    Image.asset(
-                                      'assets/page17/p17img10.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.fill,
+                                    FractionallySizedBox(
+                                      widthFactor: 1.0,
+                                      heightFactor: 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: Image.asset(
+                                            'assets/page17/p17img10.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                     if (_selectedContainers.contains(10))
                                       if (_startIndex == 10)
@@ -674,8 +754,8 @@ class Page17State extends State<Page17> {
                             decoration: const BoxDecoration(
                               border: Border(
                                   right: BorderSide(width: 1),
-                                  top: BorderSide(width: 0.5),
-                                  bottom: BorderSide(width: 0.5)),
+                                  top: BorderSide(width: 1),
+                                  bottom: BorderSide(width: 1)),
                             ),
                             child: InkWell(
                               onTap: widget.isMultipleSelectionEnabled
@@ -690,11 +770,19 @@ class Page17State extends State<Page17> {
                                     },
                               child: Stack(
                                 children: [
-                                  Image.asset(
-                                    'assets/page17/p17img11.png',
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    fit: BoxFit.fill,
+                                  FractionallySizedBox(
+                                    widthFactor: 1.0,
+                                    heightFactor: 1,
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: AspectRatio(
+                                        aspectRatio: 1.5,
+                                        child: Image.asset(
+                                          'assets/page17/p17img11.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                   if (_selectedContainers.contains(9))
                                     if (_startIndex == 9)

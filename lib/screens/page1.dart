@@ -200,7 +200,7 @@ class Page1State extends State<Page1> {
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
-                                        right: BorderSide(width: .5),
+                                        right: BorderSide(width: .1),
                                         top: BorderSide(width: 0.5),
                                         bottom: BorderSide(width: 0.5),
                                       ),
@@ -218,12 +218,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/jeemp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/jeemp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(4))
@@ -273,12 +279,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/raap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/raap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(9))
@@ -328,12 +340,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/zoadp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/zoadp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(14))
@@ -383,12 +401,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/faap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/faap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(19))
@@ -438,12 +462,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/noonp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/noonp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(24))
@@ -477,7 +507,7 @@ class Page1State extends State<Page1> {
                                       border: Border(
                                         left: BorderSide(width: 1),
                                         top: BorderSide(width: 0.5),
-                                        bottom: BorderSide(width: 0.5),
+                                        bottom: BorderSide(width: 1),
                                       ),
                                     ),
                                     child: InkWell(
@@ -493,12 +523,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/yap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/yap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(29))
@@ -556,12 +592,18 @@ class Page1State extends State<Page1> {
                                             },
                                       child: Stack(
                                         children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/saap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/saap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(3))
@@ -614,12 +656,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/zaalp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/zaalp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(8))
@@ -670,12 +718,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/saadp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/saadp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(13))
@@ -726,12 +780,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/gaeenp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/gaeenp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(18))
@@ -782,12 +842,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/meemp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/meemp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(23))
@@ -838,12 +904,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/yaap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/yaap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(28))
@@ -881,7 +953,7 @@ class Page1State extends State<Page1> {
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
-                                        left: BorderSide(width: .5),
+                                        //  left: BorderSide(width: .1),
                                         top: BorderSide(width: 0.5),
                                         right: BorderSide(width: .5),
                                         bottom: BorderSide(width: 0.5),
@@ -901,12 +973,18 @@ class Page1State extends State<Page1> {
                                             },
                                       child: Stack(
                                         children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/taap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/taap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(2))
@@ -957,12 +1035,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/daalp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/daalp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(7))
@@ -1011,12 +1095,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/sheenp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/sheenp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(12))
@@ -1065,12 +1155,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/aeenp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/aeenp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(17))
@@ -1119,12 +1215,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/laamp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/laamp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(22))
@@ -1173,12 +1275,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/hamzap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/hamzap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(27))
@@ -1216,9 +1324,9 @@ class Page1State extends State<Page1> {
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       border: Border(
-                                        left: BorderSide(width: .5),
+                                        left: BorderSide(width: .1),
                                         top: BorderSide(width: 0.5),
-                                        right: BorderSide(width: 0.5),
+                                        //  right: BorderSide(width: 0.5),
                                         bottom: BorderSide(width: 0.5),
                                       ),
                                     ),
@@ -1236,12 +1344,18 @@ class Page1State extends State<Page1> {
                                             },
                                       child: Stack(
                                         children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/bap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/bap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(1))
@@ -1293,12 +1407,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/khap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/khap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(6))
@@ -1348,12 +1468,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/seenp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/seenp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(11))
@@ -1403,12 +1529,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/zoap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/zoap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(16))
@@ -1458,12 +1590,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/qaafp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/qaafp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(21))
@@ -1513,12 +1651,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/haap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/haap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(26))
@@ -1576,12 +1720,18 @@ class Page1State extends State<Page1> {
                                             },
                                       child: Stack(
                                         children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/alifp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/alifp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(0))
@@ -1634,12 +1784,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/hap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/hap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(5))
@@ -1690,12 +1846,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/zap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/zap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(10))
@@ -1746,12 +1908,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/tap1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/tap1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(15))
@@ -1802,12 +1970,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/qafp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/qafp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(20))
@@ -1858,12 +2032,18 @@ class Page1State extends State<Page1> {
                                                 await _audioPlayer.play();
                                               },
                                         child: Stack(children: [
-                                          Center(
-                                            child: Image.asset(
-                                              'assets/page1/wowp1.png',
-                                              width: 80,
-                                              height: 100,
-                                              fit: BoxFit.contain,
+                                          FractionallySizedBox(
+                                            widthFactor: 1.0,
+                                            heightFactor: 1,
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AspectRatio(
+                                                aspectRatio: 1.1,
+                                                child: Image.asset(
+                                                  'assets/page1/wowp1.png',
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           if (_selectedContainers.contains(25))
