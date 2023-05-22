@@ -17,6 +17,8 @@ class Page1 extends StatefulWidget {
 
 class Page1State extends State<Page1> {
   AudioPlayer _audioPlayer = AudioPlayer();
+  OverlayEntry? _overlayEntry;
+  Map<int, GlobalKey> _containerKeys = {};
   List<String> _selectedAudioFiles = [];
   Set<int> _selectedContainers = {};
   List<String> audioFilePaths = [
@@ -125,6 +127,85 @@ class Page1State extends State<Page1> {
     }
   }
 
+  void _showOverlay(String imagePath, RenderBox containerRenderBox) {
+    setState(() {
+      if (_overlayEntry != null) {
+        _overlayEntry!.remove();
+        _overlayEntry = null;
+      }
+      _overlayEntry = OverlayEntry(
+        builder: (BuildContext context) {
+          final Size containerSize = containerRenderBox.size;
+          final Offset containerPosition =
+              containerRenderBox.localToGlobal(Offset.zero);
+
+          return Positioned(
+            left: containerPosition.dx - (containerSize.width * 0.10),
+            top: containerPosition.dy - (containerSize.height * 0.10),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _overlayEntry!.remove();
+                  _overlayEntry = null;
+                });
+              },
+              child: Stack(
+                children: [
+                  Container(
+                    width: containerSize.width * 1.15,
+                    height: containerSize.height * 1.05,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0, 2),
+                          blurRadius: 4.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: containerSize.width * 1.10,
+                    height: containerSize.height * 1.00,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      color: const Color.fromARGB(255, 255, 241, 232),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Center(
+                        child: Image.asset(
+                          imagePath,
+                          width: containerSize.width,
+                          height: containerSize.height,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+      Overlay.of(context).insert(_overlayEntry!);
+    });
+  }
+
+  void _hideOverlay() {
+    _overlayEntry?.remove();
+    _overlayEntry = null;
+  }
+
+  GlobalKey<State<StatefulWidget>>? _getContainerKey(int index) {
+    if (!_containerKeys.containsKey(index)) {
+      _containerKeys[index] = GlobalKey();
+    }
+    return _containerKeys[index];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,6 +278,7 @@ class Page1State extends State<Page1> {
                             children: [
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(4),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
@@ -212,10 +294,22 @@ class Page1State extends State<Page1> {
                                                     4, audioFilePaths[4]);
                                               }
                                             : () async {
+                                                String img =
+                                                    'assets/page1/jem1.png';
+                                                RenderBox containerRenderBox =
+                                                    _getContainerKey(4)
+                                                            ?.currentContext!
+                                                            .findRenderObject()
+                                                        as RenderBox;
                                                 await _audioPlayer.stop();
+                                                _hideOverlay();
+                                                _showOverlay(
+                                                    img, containerRenderBox);
+
                                                 await _audioPlayer.setAsset(
                                                     audioFilePaths[4]);
                                                 await _audioPlayer.play();
+                                                _hideOverlay();
                                               },
                                         child: Stack(children: [
                                           FractionallySizedBox(
@@ -259,6 +353,7 @@ class Page1State extends State<Page1> {
                               ),
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(9),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
@@ -273,10 +368,21 @@ class Page1State extends State<Page1> {
                                                     9, audioFilePaths[9]);
                                               }
                                             : () async {
+                                                String img =
+                                                    'assets/page1/raa1.png';
+                                                RenderBox containerRenderBox =
+                                                    _getContainerKey(9)
+                                                            ?.currentContext!
+                                                            .findRenderObject()
+                                                        as RenderBox;
                                                 await _audioPlayer.stop();
+                                                _hideOverlay();
+                                                _showOverlay(
+                                                    img, containerRenderBox);
                                                 await _audioPlayer.setAsset(
                                                     audioFilePaths[9]);
                                                 await _audioPlayer.play();
+                                                _hideOverlay();
                                               },
                                         child: Stack(children: [
                                           FractionallySizedBox(
@@ -320,6 +426,7 @@ class Page1State extends State<Page1> {
                               ),
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(14),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
@@ -334,10 +441,21 @@ class Page1State extends State<Page1> {
                                                     14, audioFilePaths[14]);
                                               }
                                             : () async {
+                                                String img =
+                                                    'assets/page1/zoa1.png';
+                                                RenderBox containerRenderBox =
+                                                    _getContainerKey(14)
+                                                            ?.currentContext!
+                                                            .findRenderObject()
+                                                        as RenderBox;
                                                 await _audioPlayer.stop();
+                                                _hideOverlay();
+                                                _showOverlay(
+                                                    img, containerRenderBox);
                                                 await _audioPlayer.setAsset(
                                                     audioFilePaths[14]);
                                                 await _audioPlayer.play();
+                                                _hideOverlay();
                                               },
                                         child: Stack(children: [
                                           FractionallySizedBox(
@@ -381,6 +499,7 @@ class Page1State extends State<Page1> {
                               ),
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(19),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
@@ -395,10 +514,21 @@ class Page1State extends State<Page1> {
                                                     19, audioFilePaths[19]);
                                               }
                                             : () async {
+                                                String img =
+                                                    'assets/page1/fa1.png';
+                                                RenderBox containerRenderBox =
+                                                    _getContainerKey(19)
+                                                            ?.currentContext!
+                                                            .findRenderObject()
+                                                        as RenderBox;
                                                 await _audioPlayer.stop();
+                                                _hideOverlay();
+                                                _showOverlay(
+                                                    img, containerRenderBox);
                                                 await _audioPlayer.setAsset(
                                                     audioFilePaths[19]);
                                                 await _audioPlayer.play();
+                                                _hideOverlay();
                                               },
                                         child: Stack(children: [
                                           FractionallySizedBox(
@@ -442,6 +572,7 @@ class Page1State extends State<Page1> {
                               ),
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(24),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
@@ -456,10 +587,21 @@ class Page1State extends State<Page1> {
                                                     24, audioFilePaths[24]);
                                               }
                                             : () async {
+                                                String img =
+                                                    'assets/page1/non1.png';
+                                                RenderBox containerRenderBox =
+                                                    _getContainerKey(24)
+                                                            ?.currentContext!
+                                                            .findRenderObject()
+                                                        as RenderBox;
                                                 await _audioPlayer.stop();
+                                                _hideOverlay();
+                                                _showOverlay(
+                                                    img, containerRenderBox);
                                                 await _audioPlayer.setAsset(
                                                     audioFilePaths[24]);
                                                 await _audioPlayer.play();
+                                                _hideOverlay();
                                               },
                                         child: Stack(children: [
                                           FractionallySizedBox(
@@ -503,6 +645,7 @@ class Page1State extends State<Page1> {
                               ),
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(29),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: 1),
@@ -517,10 +660,21 @@ class Page1State extends State<Page1> {
                                                     29, audioFilePaths[29]);
                                               }
                                             : () async {
+                                                String img =
+                                                    'assets/page1/ya1.png';
+                                                RenderBox containerRenderBox =
+                                                    _getContainerKey(29)
+                                                            ?.currentContext!
+                                                            .findRenderObject()
+                                                        as RenderBox;
                                                 await _audioPlayer.stop();
+                                                _hideOverlay();
+                                                _showOverlay(
+                                                    img, containerRenderBox);
                                                 await _audioPlayer.setAsset(
                                                     audioFilePaths[29]);
                                                 await _audioPlayer.play();
+                                                _hideOverlay();
                                               },
                                         child: Stack(children: [
                                           FractionallySizedBox(
@@ -570,6 +724,7 @@ class Page1State extends State<Page1> {
                             children: [
                               Expanded(
                                 child: Container(
+                                    key: _getContainerKey(3),
                                     decoration: const BoxDecoration(
                                       border: Border(
                                         left: BorderSide(width: .5),
@@ -585,10 +740,22 @@ class Page1State extends State<Page1> {
                                                   3, audioFilePaths[3]);
                                             }
                                           : () async {
+                                              String img =
+                                                  'assets/page1/sa1.png';
+                                              RenderBox containerRenderBox =
+                                                  _getContainerKey(3)
+                                                          ?.currentContext!
+                                                          .findRenderObject()
+                                                      as RenderBox;
+                                              await _audioPlayer.stop();
+                                              _hideOverlay();
+                                              _showOverlay(
+                                                  img, containerRenderBox);
                                               await _audioPlayer.stop();
                                               await _audioPlayer
                                                   .setAsset(audioFilePaths[3]);
                                               await _audioPlayer.play();
+                                              _hideOverlay();
                                             },
                                       child: Stack(
                                         children: [
